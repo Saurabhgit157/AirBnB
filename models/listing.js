@@ -14,7 +14,7 @@ const ListingSchema = new mongoose.Schema({
         url: String,
     },
     price : Number,
-    Location: String,
+    location: String,
     country: String,
 })
 
