@@ -41,11 +41,27 @@ app.get("/",(req,res)=>{
 
 app.set("view engine" , " ejs");
 app.set("views",path.join(__dirname,"views"));
+app.use(express.urlencoded({extended:  true}));
 
+//index routes
 app.get("/listings", async (req,res)=>{
     const allListings = await Listing.find({});
     res.render("listing/index.ejs",{allListings});
 })
+
+//show route
+app.get("/listings/:id" , async (req,res) => {
+    let {id} = req.params;
+    const listing = await Listing.findById(id);
+    console.log(listing)
+    res.render("listing/show.ejs",{listing});
+}
+)
+// app.get("/test", async (req, res) => {
+//     const allListings = await Listing.find({});
+//     console.log(allListings);
+//     res.send("Check terminal");
+// });
 app.listen(3000,()=>{
     console.log("server is listening to port 3000")
 });
