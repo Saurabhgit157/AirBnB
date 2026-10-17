@@ -49,6 +49,18 @@ app.get("/listings", async (req,res)=>{
     res.render("listing/index.ejs",{allListings});
 })
 
+//create route
+app.get("/listings/new" , (req,res)=>{
+    res.render("listing/new.ejs");
+})
+
+app.post("/listings" , async (req,res)=>{
+    
+    const newListing = new Listing(req.body.listing);
+    await newListing.save();
+    res.redirect("/listings");
+})
+
 //show route
 app.get("/listings/:id" , async (req,res) => {
     let {id} = req.params;
@@ -62,6 +74,9 @@ app.get("/listings/:id" , async (req,res) => {
 //     console.log(allListings);
 //     res.send("Check terminal");
 // });
+
+
+
 app.listen(3000,()=>{
     console.log("server is listening to port 3000")
 });
