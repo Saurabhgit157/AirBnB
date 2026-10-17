@@ -1,0 +1,93 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+}
+
+.navbar-brand i {
+    font-size: 2rem;
+    color: #fe424d;
+}
+
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+    color: #222222;
+}
+
+.f-info-socials {
+    width: 100%;
+    font-size: 1.2rem;
+    margin-right: 2rem;
+}
+
+.f-info-brand, .f-info-links { width: 100%; color: black; }
+
+.f-info {
+     min-height: 8rem;
+     display: flex;
+     background-color: rgb(214, 210, 210) !important;
+     flex-wrap: wrap; 
+     justify-content: center;
+    text-align: center; 
+    align-items: center; 
+    align-content: space-evenly; 
+    color: black; 
+} 
+.f-info-socials, .f-info-brand, .f-info-links, .f-info-links a { 
+    color: black !important; 
+}
+
+.card {
+    border: none !important;
+    box-shadow: none !important;
+    width: 100%;
+    margin-bottom: 2rem;
+    background: transparent !important;
+    overflow: hidden;
+    position: relative;
+    
+}
+
+.card-body {
+    border: none !important;
+    padding: 0;
+    background: transparent !important;
+    color: black;
+}
+
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    display: block;
+}
+
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+
+
+
