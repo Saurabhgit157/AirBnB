@@ -1,16 +1,26 @@
 <% layout("/layouts/boilerplate") -%>
-    <h3>Listing Details</h3>
-    <ul>
-        <li><%= listing.title %></li>
-        <li><%= listing.description %></li>
-        <li> &#8377 <%= listing.price.toLocaleString("en-In") %></li>
-        <li><%= listing.location %></li>
-        <li><%= listing.country %></li>
-    </ul>
-    <br>
-    <br>
-    <a href="/listings/<%= listing._id %>/edit">Edit This Listing</a>
-
-    <form method="post" action="/listings/<%= listing._id %>?_method=DELETE">
-        <button>DELETE THIS</button>
-    </form>
+<div class="row">
+    <div class="col-8 offset-2">
+        <h3>Listing Details:</h3>
+        <div class="card">
+            <img
+                src="<%= listing.image && listing.image.url ? listing.image.url : 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800' %>"
+                class="card-img-top show-img"
+                alt="listing_image"
+            >
+            <div class="card-body">
+                <h4 class="card-title"><%= listing.title %></h4>
+                <p class="card-text">
+                    <%= listing.description %> <br>
+                    &#8377; <%= listing.price ? listing.price.toLocaleString("en-IN") : "N/A" %> <br>
+                    <%= listing.location %> <br>
+                    <%= listing.country %> <br>
+                </p>
+                <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark me-2">Edit This Listing</a>
+                <form method="post" action="/listings/<%= listing._id %>?_method=DELETE" class="d-inline">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

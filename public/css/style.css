@@ -89,5 +89,21 @@ body {
     background-color: white;
 }
 
+.btn-red {
+    background-color: #fe424d;
+    color: white;
+    border: none;
+}
+
+.btn-red:hover {
+    background-color: #e0323c;
+    color: white;
+}
+
+.show-img{
+    height: 30vh;
+}
+
+
 
 
