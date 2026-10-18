@@ -1,0 +1,12 @@
+<% layout("/layouts/boilerplate") -%>
+
+<div class="row mt-5">
+    <div class="col-md-6 offset-md-3 text-center">
+        <div class="p-5" style="background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 16px; border: 1px solid rgba(255,255,255,0.08);">
+            <h1 class="display-1 fw-bold" style="color: #e63946;"><%= statusCode %></h1>
+            <h4 class="mb-3" style="color: #f1faee;">Oops! Something went wrong.</h4>
+            <p class="mb-4" style="color: #a8dadc;"><%= message %></p>
+            <a href="/listings" class="btn btn-red btn-sm">← Back to Listings</a>
+        </div>
+    </div>
+</div>
