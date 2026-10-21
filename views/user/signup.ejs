@@ -1,0 +1,91 @@
+<% layout("/layouts/boilerplate") -%>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5 col-sm-10">
+
+        <div class="card shadow-lg border-0" style="border-radius: 16px; overflow: hidden;">
+
+            <!-- Card Header -->
+            <div class="card-header text-white text-center py-4"
+                style="background: linear-gradient(135deg, #fe424d, #ff6b6b);">
+                <i class="fa-solid fa-user-plus fa-2x mb-2"></i>
+                <h3 class="mb-0 fw-bold">Create an Account</h3>
+                <p class="mb-0 opacity-75 small">Join WanderLust today — it's free!</p>
+            </div>
+
+            <!-- Card Body -->
+            <div class="card-body p-4">
+                <form method="POST" action="/signup" novalidate class="needs-validation">
+
+                    <!-- Username -->
+                    <div class="mb-3">
+                        <label for="username" class="form-label fw-semibold">
+                            <i class="fa-solid fa-user me-1 text-danger"></i> Username
+                        </label>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            class="form-control"
+                            placeholder="e.g. saurabh123"
+                            required
+                            autofocus
+                        >
+                        <div class="invalid-feedback">Please choose a username.</div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-semibold">
+                            <i class="fa-solid fa-envelope me-1 text-danger"></i> Email
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="you@example.com"
+                            required
+                        >
+                        <div class="invalid-feedback">Please enter a valid email.</div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="mb-4">
+                        <label for="password" class="form-label fw-semibold">
+                            <i class="fa-solid fa-lock me-1 text-danger"></i> Password
+                        </label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            class="form-control"
+                            placeholder="Choose a strong password"
+                            required
+                        >
+                        <div class="invalid-feedback">Please enter a password.</div>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-danger btn-lg fw-semibold"
+                            style="background: linear-gradient(135deg, #fe424d, #ff6b6b); border: none; border-radius: 10px;">
+                            <i class="fa-solid fa-right-to-bracket me-2"></i>Sign Up
+                        </button>
+                    </div>
+
+                </form>
+
+                <hr class="my-4">
+
+                <p class="text-center text-muted mb-0">
+                    Already have an account?
+                    <a href="/login" class="text-danger fw-semibold text-decoration-none">Log in</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/script.js"></script>

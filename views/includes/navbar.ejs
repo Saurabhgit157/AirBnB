@@ -14,7 +14,7 @@
 
     <!-- Nav Links -->
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto gap-1">
+      <ul class="navbar-nav ms-auto gap-1 align-items-center">
         <li class="nav-item">
           <a class="nav-link fw-medium" href="/listings">Home</a>
         </li>
@@ -24,6 +24,37 @@
         <li class="nav-item">
           <a class="nav-link fw-medium" href="/listings/new">Add New Listing</a>
         </li>
+
+        <!-- Show these if user is NOT logged in -->
+        <% if (!currentUser) { %>
+          <li class="nav-item">
+            <a class="nav-link fw-medium" href="/signup">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-danger btn-sm px-3 fw-semibold ms-1"
+               href="/login"
+               style="border-radius: 8px;">
+              Log In
+            </a>
+          </li>
+
+        <!-- Show these if user IS logged in -->
+        <% } else { %>
+          <li class="nav-item">
+            <span class="nav-link fw-medium text-muted">
+              <i class="fa-solid fa-circle-user me-1" style="color:#fe424d;"></i>
+              <%= currentUser.username %>
+            </span>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-danger btn-sm px-3 fw-semibold ms-1"
+               href="/logout"
+               style="border-radius: 8px;">
+              Log Out
+            </a>
+          </li>
+        <% } %>
+
       </ul>
     </div>
   </div>

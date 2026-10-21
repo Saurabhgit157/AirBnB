@@ -1,23 +1,34 @@
 const mongoose = require("mongoose");
-const { title } = require("process");
-const schema = mongoose.schema;
+const Review = require("./review");
 
 const ListingSchema = new mongoose.Schema({
     title: {
-        type : String,
-        required : true,
+        type: String,
+        required: true,
     },
-    
-    description : String,
-    image : {
+    description: String,
+    image: {
         filename: String,
         url: String,
     },
-    price : Number,
+    price: Number,
     location: String,
     country: String,
-})
+    reviews: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Review",
+        }
+    ],
+});
 
-const Listing = mongoose.model("listing" , ListingSchema);
+// Cascade delete: remove all associated reviews when a listing is deleted
+ListingSchema.post("findOneAndDelete", async (listing) => {
+    if (listing && listing.reviews.length > 0) {
+        await Review.deleteMany({ _id: { $in: listing.reviews } });
+    }
+});
 
-module.exports = Listing ;
+const Listing = mongoose.model("listing", ListingSchema);
+
+module.exports = Listing;
